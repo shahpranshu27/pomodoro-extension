@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Pomodoro Timer",
+    "version": "1.0",
+    "description": "A simple Pomodoro timer with badge and pause feature.",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "128": "focus128.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "storage",
+      "alarms",
+      "notifications"
+    ],
+    "icons": {
+    "48": "focus48.png"
+  }
+  }
+  
