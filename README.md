@@ -7,7 +7,9 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 - Start, Pause & Reset controls
 - Notification when timer ends
 - Time visible directly on extension icon
+- Custom durations
 
+  
 ## 📦 How to Use
 1. Clone or download this repo
 2. Go to `chrome://extensions/`
@@ -17,7 +19,7 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 
 ## 📌 Coming Soon
 <!-- - Break timers -->
-- Custom durations
+
 <!-- - Stats dashboard -->
 - Sounds & alerts
 
