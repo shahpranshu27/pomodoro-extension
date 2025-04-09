@@ -1,38 +1,45 @@
 body {
-    font-family: Arial, sans-serif;
-    width: 220px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h2 {
-    margin-bottom: 15px;
-    color: #d35400;
-  }
-  
-  #timer {
-    font-size: 2em;
-    margin-bottom: 15px;
-  }
-  
-  button {
-    padding: 8px 12px;
-    margin: 4px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  .buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  width: 250px;
+  padding: 15px;
+  background-color: #fefefe;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#timer {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#sessionType {
+  font-size: 20px;
+  color: #ff6347;
+}
+
+.controls button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #ff6347;
+  color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #e5533c;
+}
+
+#cycleCount {
+  font-size: 14px;
+  margin-top: 5px;
+}

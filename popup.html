@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8" />
   <title>Pomodoro Timer</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>Pomodoro Timer</h2>
-  <div id="timer">25:00</div>
-  <div class="buttons">
-    <button id="startBtn">Start</button>
-    <button id="pauseBtn">Pause</button>
-    <button id="stopBtn">Reset</button>
+  <div class="container">
+    <h2 id="sessionType">Focus</h2>
+    <div id="timer">25:00</div>
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="stopBtn">Stop</button>
+    </div>
+    <p id="cycleCount">🍅 Pomodoros: 0</p>
   </div>
   <script src="popup.js"></script>
 </body>

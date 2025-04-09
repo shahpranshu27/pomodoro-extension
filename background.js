@@ -1,77 +1,84 @@
-let timerInterval = null;
-let paused = false;
-let pausedTime = 0;
+let timer = null;
+let remainingTime = 25 * 60; // 25 mins
+let sessionType = 'focus'; // 'focus', 'short-break', 'long-break'
+let pomodoroCount = 0;
+let isRunning = false;
 
-function updateBadge(timeLeft) {
-  const mins = Math.floor(timeLeft / 1000 / 60);
-  const secs = Math.floor((timeLeft / 1000) % 60);
-  chrome.action.setBadgeText({ text: `${mins}:${secs < 10 ? '0' : ''}${secs}` });
-  chrome.action.setBadgeBackgroundColor({ color: '#e67e22' });
-}
+function startTimer() {
+  if (isRunning) return;
+  isRunning = true;
 
-function startTimer(duration) {
-  const endTime = Date.now() + duration;
-
-  chrome.storage.local.set({ isRunning: true, endTime });
-
-  clearInterval(timerInterval);
-  timerInterval = setInterval(() => {
-    const remaining = Math.max(0, endTime - Date.now());
-    chrome.storage.local.set({ remaining });
-    updateBadge(remaining);
-
-    if (remaining <= 0) {
-      clearInterval(timerInterval);
-      chrome.storage.local.set({ isRunning: false });
-      chrome.action.setBadgeText({ text: "" });
-
-      chrome.notifications?.create({
-        type: "basic",
-        iconUrl: "focus128.png",
-        title: "Pomodoro Complete!",
-        message: "Take a break 🎉"
-      });
+  timer = setInterval(() => {
+    remainingTime--;
+    if (remainingTime <= 0) {
+      clearInterval(timer);
+      isRunning = false;
+      handleSessionComplete();
     }
   }, 1000);
 }
 
+function pauseTimer() {
+  clearInterval(timer);
+  isRunning = false;
+}
+
+function stopTimer() {
+  clearInterval(timer);
+  isRunning = false;
+  sessionType = 'focus';
+  remainingTime = 25 * 60; // reset to 25 mins
+  pomodoroCount = 0;
+}
+
+function handleSessionComplete() {
+  if (sessionType === 'focus') {
+    pomodoroCount++;
+    showNotification("Focus session over! Time for a break.");
+    if (pomodoroCount % 4 === 0) {
+      sessionType = 'long-break';
+      remainingTime = 15 * 60; // 15 mins long-break
+    } else {
+      sessionType = 'short-break';
+      remainingTime = 5 * 60; // 5 min short-break
+    }
+  } else {
+    showNotification("Break over! Time to focus.");
+    sessionType = 'focus';
+    remainingTime = 25 * 60; // 25 mins
+  }
+
+  startTimer();
+}
+
+function showNotification(message) {
+  chrome.notifications.create({
+    type: "basic",
+    iconUrl: "focus128.png",
+    title: "Pomodoro Timer",
+    message: message
+  });
+}
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.command === "start") {
-    chrome.storage.local.get(["isRunning", "remaining"], (data) => {
-      if (data.isRunning) {
-        // Already running, do nothing
-        sendResponse({ status: "already_running" });
-        return;
-      }
-
-      const duration = paused && pausedTime ? pausedTime : (message.duration || 25 * 60) * 1000;
-      paused = false;
-      pausedTime = 0;
-
-      startTimer(duration);
-      sendResponse({ status: "started" });
-    });
-
-    return true; // Needed for async sendResponse
-  }
-
-  if (message.command === "pause") {
-    paused = true;
-    clearInterval(timerInterval);
-    chrome.storage.local.get("remaining", (data) => {
-      pausedTime = data.remaining;
-    });
-    chrome.storage.local.set({ isRunning: false });
-    chrome.action.setBadgeText({ text: "⏸" });
-    sendResponse({ status: "paused" });
-  }
-
-  if (message.command === "stop") {
-    clearInterval(timerInterval);
-    paused = false;
-    pausedTime = 0;
-    chrome.storage.local.set({ isRunning: false, remaining: 0 });
-    chrome.action.setBadgeText({ text: "" });
-    sendResponse({ status: "stopped" });
+  switch (message.type) {
+    case 'start':
+      startTimer();
+      break;
+    case 'pause':
+      pauseTimer();
+      break;
+    case 'stop':
+      stopTimer();
+      break;
+    case 'getState':
+      sendResponse({
+        remainingTime,
+        sessionType,
+        pomodoroCount,
+        isRunning
+      });
+      break;
   }
 });
+
