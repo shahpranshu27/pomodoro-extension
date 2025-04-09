@@ -4,7 +4,7 @@ const stopBtn = document.getElementById("stopBtn");
 const timerDisplay = document.getElementById("timer");
 
 startBtn.addEventListener("click", () => {
-  chrome.runtime.sendMessage({ command: "start", duration: 1 * 60 });
+  chrome.runtime.sendMessage({ command: "start", duration: 25 * 60 });
 });
 
 pauseBtn.addEventListener("click", () => {
@@ -29,8 +29,8 @@ function updateTimer() {
   });
 }
 
-// 🛠 Immediately show correct time
+// Immediately show correct time
 updateTimer();  
 
-// 🔁 Keep updating every second
+// Keep updating every second
 setInterval(updateTimer, 1000);

@@ -1,11 +1,3 @@
-// chrome.runtime.onInstalled.addListener(() => {
-//     chrome.notifications?.create({
-//       type: "basic",
-//       iconUrl: "focus128.png",
-//       title: "Test Notification",
-//       message: "This is a test 🔔"
-//     });
-//   });
 let timerInterval = null;
 let paused = false;
 let pausedTime = 0;

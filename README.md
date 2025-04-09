@@ -4,7 +4,7 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 
 ## ✅ Features
 - 25-minute focus timer
-- Pause & Stop controls
+- Start, Pause & Reset controls
 - Notification when timer ends
 - Time visible directly on extension icon
 
@@ -21,4 +21,4 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 <!-- - Stats dashboard -->
 - Sounds & alerts
 
-<!-- ## 🧠 Made by [Pranshu Shah]() -->
+## 🧠 Made by [Pranshu Shah](https://www.linkedin.com/in/shahpranshu27/)
