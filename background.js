@@ -32,9 +32,13 @@ function stopTimer() {
 }
 
 function handleSessionComplete() {
+  function notifyPopupSound(type) {
+    chrome.runtime.sendMessage({ type: "playSound", session: type });
+  }
   if (sessionType === 'focus') {
     pomodoroCount++;
     showNotification("Focus session over! Time for a break.");
+    notifyPopupSound('break')
     if (pomodoroCount % 4 === 0) {
       sessionType = 'long-break';
       remainingTime = 15 * 60; // 15 mins long-break
@@ -44,6 +48,7 @@ function handleSessionComplete() {
     }
   } else {
     showNotification("Break over! Time to focus.");
+    notifyPopupSound('focus')
     sessionType = 'focus';
     remainingTime = 25 * 60; // 25 mins
   }

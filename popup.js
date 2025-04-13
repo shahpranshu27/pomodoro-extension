@@ -6,6 +6,14 @@ const startBtn = document.getElementById("startBtn");
 const pauseBtn = document.getElementById("pauseBtn");
 const stopBtn = document.getElementById("stopBtn");
 
+const alarmAudio = new Audio("alarm.wav");
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === "playSound") {
+    alarmAudio.play();
+  }
+});
+
 let interval;
 
 function updateUI(state) {

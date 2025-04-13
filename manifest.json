@@ -17,8 +17,14 @@
       "alarms",
       "notifications"
     ],
+    "web_accessible_resources": [
+    {
+      "resources": ["alarm.wav"],
+      "matches": ["<all_urls>"]
+    }
+    ],
     "icons": {
     "48": "focus48.png"
-  }
+    }
   }
   
