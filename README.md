@@ -25,4 +25,8 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 - Dark Mode toggle
 <!-- - Stats dashboard -->
 
+## 🖼️ Images
+
+![Pomodoro UI](pomodoro-ui.png)
+
 ## 🧠 Made by [Pranshu Shah](https://www.linkedin.com/in/shahpranshu27/)
