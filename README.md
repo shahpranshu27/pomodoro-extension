@@ -29,4 +29,8 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 
 ![Pomodoro UI](pomodoro-ui.png)
 
+![Pomodoro Notification](pomodoro-notification.png)
+
+![Pomodoro Live Timer on Extension Badge](pomodoro-live-timer.png)
+
 ## 🧠 Made by [Pranshu Shah](https://www.linkedin.com/in/shahpranshu27/)
