@@ -27,10 +27,15 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 
 ## 🖼️ Images
 
+1. Pomodoro Screen on click of extension
 ![Pomodoro UI](pomodoro-ui.png)
 
+
+2. Notification on starting of break time and focus time
 ![Pomodoro Notification](pomodoro-notification.png)
 
+
+3. Live timer on badge of extension
 ![Pomodoro Live Timer on Extension Badge](pomodoro-live-timer.png)
 
 ## 🧠 Made by [Pranshu Shah](https://www.linkedin.com/in/shahpranshu27/)
