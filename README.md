@@ -8,6 +8,7 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 - Notification when timer ends
 - Time visible directly on extension icon
 - Custom durations
+- Sounds & alerts
 
   
 ## 📦 How to Use
@@ -21,6 +22,5 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 <!-- - Break timers -->
 
 <!-- - Stats dashboard -->
-- Sounds & alerts
 
 ## 🧠 Made by [Pranshu Shah](https://www.linkedin.com/in/shahpranshu27/)
