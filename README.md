@@ -9,6 +9,7 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 - Time visible directly on extension icon
 - Custom durations
 - Sounds & alerts
+- Pomodoro cycle counter
 
   
 ## 📦 How to Use
@@ -20,7 +21,8 @@ A minimal, distraction-free **Pomodoro timer** built as a Chrome Extension. Stay
 
 ## 📌 Coming Soon
 <!-- - Break timers -->
-
+- Setting panel (User preferences)
+- Dark Mode toggle
 <!-- - Stats dashboard -->
 
 ## 🧠 Made by [Pranshu Shah](https://www.linkedin.com/in/shahpranshu27/)
